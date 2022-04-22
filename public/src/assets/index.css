@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;700;900&display=swap');
+*, body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,h2,h3,h4,h5,h6{
+  margin: 0 !important; padding: 0 !important;
+}
+body{
+  background-color: #fafafa;
+  cursor: default;
+}
+.ant-layout-sider, .ant-layout-sider-trigger, .ant-menu-inline, .ant-menu.ant-menu-inline-collapsed{
+  background-color: transparent !important;
+}
+.ant-layout-sider{
+  padding: 0px 20px;
+}
+.ant-menu-inline{
+  gap: 2px;
+}
+.ant-layout-sider li{
+  color: #aaa;
+  padding: 0px 15px !important;
+}
+.ant-layout-sider li a{
+  color: #888 !important;
+  font-weight: 600;
+}
+.ant-layout-sider .ant-menu-item-selected{
+  background-color: #fff !important;
+  border-radius: 6px;
+  box-shadow: 0px 5px 5px 5px #00000008;
+}
+.ant-layout-sider .ant-menu-item-selected a{
+  color: #444 !important;
+}
+.ant-layout-sider .ant-menu-item-selected svg{
+  color: #1890ff;
+}
+.ant-layout-sider-collapsed .ant-layout-sider-trigger{
+  max-width: 40px !important;
+}
+.ant-layout-sider-trigger{
+  max-width: 160px !important;
+}
+.ant-layout-sider-trigger span{
+  background-color: #1890ff;
+  padding: 6px;
+  border-radius: 25px;
+  font-weight: 900;
+}
+.ant-layout-sider-collapsed .ant-menu li{
+  padding: 2px 12px !important;
+}
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+.logo h2{
+  margin: 0;
+  font-weight: 900;
+  color: #1890ff;
+}
+.ant-layout-sider-collapsed .logo h2{
+  font-size: 16px;
+}
+.card{
+  box-shadow: 0px 10px 10px 10px #00000005;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #ffffff60;
+}
