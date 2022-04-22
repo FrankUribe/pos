@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require("bcrypt");
 const router = express.Router();
 
 const mysqlConex = require('../database')
@@ -32,18 +33,22 @@ router.get('/user/:id', (req, res) => {
   });
 })
 
-router.post('/user/add', (req, res) => {
+router.post('/user/add', async (req, res) => {
   const sql = 'INSERT INTO tb_users SET ?';
-
+  const getpwd = req.body.pwd;
+  const saltRounds = 10;
+  const hpwd = await bcrypt.hash(getpwd, saltRounds);
   const userObj = {
     user_name: req.body.name,
     user_email: req.body.email,
+    user_hashpwd: hpwd,
+    user_pwd: req.body.pwd,
     user_type: req.body.type
   };
 
   mysqlConex.query(sql, userObj, error => {
-    if (error) throw error;
-    return res.send('User created!');
+    if (error) return res.json({status:false, msg:error});
+    return res.json({status:true, msg:'Usuario creado satisfactoriamente'});
   });
 });
 

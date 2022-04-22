@@ -7,9 +7,10 @@
 }
 h1,h2,h3,h4,h5,h6{
   margin: 0 !important; padding: 0 !important;
+  font-weight: 600 !important;
 }
-body{
-  background-color: #fafafa;
+body, .ant-layout, .ant-layout-footer {
+  background-color: #fafafa !important;
   cursor: default;
 }
 .ant-layout-sider, .ant-layout-sider-trigger, .ant-menu-inline, .ant-menu.ant-menu-inline-collapsed{
@@ -32,7 +33,7 @@ body{
 .ant-layout-sider .ant-menu-item-selected{
   background-color: #fff !important;
   border-radius: 6px;
-  box-shadow: 0px 5px 5px 5px #00000008;
+  box-shadow: 0px 10px 10px 10px #00000005;
 }
 .ant-layout-sider .ant-menu-item-selected a{
   color: #444 !important;
@@ -40,9 +41,13 @@ body{
 .ant-layout-sider .ant-menu-item-selected svg{
   color: #1890ff;
 }
+.ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
+  border: none !important;
+}
 .ant-layout-sider-collapsed .ant-layout-sider-trigger{
   max-width: 40px !important;
 }
+
 .ant-layout-sider-trigger{
   max-width: 160px !important;
 }
@@ -69,9 +74,78 @@ body{
 .ant-layout-sider-collapsed .logo h2{
   font-size: 16px;
 }
+.ant-modal-content, .ant-modal-header {
+  border-radius: 10px !important;
+}
 .card{
   box-shadow: 0px 10px 10px 10px #00000005;
   padding: 15px;
   border-radius: 10px;
-  background-color: #ffffff60;
+  background-color: #ffffff;
+}
+
+.btn{
+  background-color: #eee;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+.btn-sm{
+  padding: 0px 8px;
+}
+.btn-icon{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.btn-actiontb{
+  padding-top: 2px;
+  margin: 0px 2px;
+}
+.btn-edit:hover{color:#1890ff}
+.btn-delete:hover{color: #ef3737;}
+.btn-icon svg{
+  font-size: 16px;
+}
+.btn-primary{
+  background-color: #1890ff;
+  color: #fff;
+}
+.btn-primary:hover{
+  background-color: #137ada;
+  color: #fff;
+}
+
+table {border-collapse: collapse; width: 100%;}
+table tr:nth-child(even){background-color: #fafafa;}
+table tr {transition: 0.2s ease-in-out;}
+table tbody tr:hover {background-color: #eee}
+table th {
+  padding: 8px;
+  text-align: left;
+  font-weight: 600;
+}
+table td {
+  border-style: solid;
+  border-color: #eee;
+  border-width: 1px 0px;
+  padding: 8px;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+.form-group .form-control{
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+  border: solid 1px #ccc;
+  font-size: 14px;
+  max-height: 32px;
 }
