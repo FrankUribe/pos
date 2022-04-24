@@ -19,14 +19,14 @@ function MainLayout({children}) {
       icon: <IoHomeSharp/>
     },
     {
-      name: "Items",
-      path: "/items",
-      icon: <IoGrid/>
-    },
-    {
       name: "Ventas",
       path: "/sells",
       icon: <IoPricetag/>
+    },
+    {
+      name: "Items",
+      path: "/items",
+      icon: <IoGrid/>
     },
     {
       name: "Usuarios",

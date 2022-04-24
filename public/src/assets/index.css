@@ -5,6 +5,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+*::-webkit-scrollbar {width: 10px; height: 10px;}
+*::-webkit-scrollbar-track {background: #fafafa;}
+*::-webkit-scrollbar-thumb {background-color: #eaeaea; border-radius: 20px;}
 h1,h2,h3,h4,h5,h6{
   margin: 0 !important; padding: 0 !important;
   font-weight: 600 !important;
@@ -116,13 +119,28 @@ body, .ant-layout, .ant-layout-footer {
 }
 .btn-primary:hover{
   background-color: #137ada;
+}
+.btn-danger{
+  background-color: #ef3737;
   color: #fff;
 }
-
+.btn-danger:hover{
+  background-color: #cb2222;
+}
+.activeDisplayBtn{
+  background-color: #1890ff;
+  color: #fff;
+}
+.activeDisplayBtn:hover{
+  color: #fff;
+}
+.table-responsive{
+  overflow-x:auto;
+}
 table {border-collapse: collapse; width: 100%;}
-table tr:nth-child(even){background-color: #fafafa;}
+table tr:nth-child(even){background-color: #fdfdfd;}
 table tr {transition: 0.2s ease-in-out;}
-table tbody tr:hover {background-color: #eee}
+table tbody tr:hover {background-color: #fafafa}
 table th {
   padding: 8px;
   text-align: left;
@@ -130,9 +148,12 @@ table th {
 }
 table td {
   border-style: solid;
-  border-color: #eee;
+  border-color: #f6f6f6;
   border-width: 1px 0px;
   padding: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .form-group{
@@ -149,3 +170,4 @@ table td {
   font-size: 14px;
   max-height: 32px;
 }
+

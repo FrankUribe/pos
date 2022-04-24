@@ -13,6 +13,7 @@ app.use(express.json());
 
 //Routes
 app.use(require("./routes/users"));
+app.use(require("./routes/items"));
 
 // Route
 app.get('/', (req, res) => {

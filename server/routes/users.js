@@ -5,7 +5,7 @@ const router = express.Router();
 const mysqlConex = require('../database')
 
 router.get('/users', (req, res) => {
-  mysqlConex.query('SELECT * FROM tb_users', (error, rows, fields) => {
+  mysqlConex.query('SELECT * FROM tb_users WHERE user_deleted = 0', (error, rows, fields) => {
     if (error)  throw error;
     const protectedUsers = rows.map((user) => {
       return {
@@ -52,20 +52,26 @@ router.post('/user/add', async (req, res) => {
   });
 });
 
-router.put('/user/update/:id', (req, res) => {
+router.put('/user/update/:id', async (req, res) => {
   const { id } = req.params;
-  const { name, email, type } = req.body;
-  const sql = `UPDATE tb_users SET user_name='${name}', user_email='${email}', user_type='${type}' WHERE _id =${id}`;
-
+  const { name, email, pwd, type, status } = req.body;
+  var bolstatus = status === true ? 1 : 0  
+  const saltRounds = 10;
+  const hpwd = await bcrypt.hash(pwd, saltRounds);
+  const sql = pwd === "" ? (
+    `UPDATE tb_users SET user_name='${name}', user_email='${email}', user_type='${type}', user_status='${bolstatus}' WHERE _id =${id}`
+  ) : (
+    `UPDATE tb_users SET user_name='${name}', user_email='${email}', user_hashpwd='${hpwd}', user_pwd='${pwd}', user_type='${type}', user_status='${bolstatus}' WHERE _id =${id}`
+  );
   mysqlConex.query(sql, error => {
-    if (error) throw error;
-    return res.send('User updated!');
+    if (error) return res.json({status:false, msg:error});
+    return res.json({status:true, msg:'Usuario actualizado satisfactoriamente'});
   });
 });
 
 router.delete('/user/delete/:id', (req, res) => {
   const { id } = req.params;
-  const sql = `DELETE FROM tb_users WHERE _id= ${id}`;
+  const sql = `UPDATE tb_users SET user_deleted=1 WHERE _id=${id}`;
 
   mysqlConex.query(sql, error => {
     if (error) throw error;
