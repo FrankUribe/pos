@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Users() {
-  const style = { padding: '10px' };
+  const style = { padding: '0px' };
   const [users, setUser] = useState()
   const [newUser, setNewUser] = useState({
     name: "",
@@ -192,10 +192,10 @@ export default function Users() {
   return (
     <>
     <Row>
-      <Col xs={24} md={14} lg={16} xl={18}>
+      <Col xs={24} md={14} lg={16} xl={18} style={{paddingRight:10}}>
         <div style={style}>
           <div className="card">
-            <h4>Usuarios</h4>
+            <h2>Usuarios</h2>
             <div className="table-responsive">
               <table>
                 <thead>
@@ -278,7 +278,7 @@ export default function Users() {
       <Col xs={24} md={10} lg={8} xl={6}>
         <div style={style}>
           <div className="card">
-            <h4>Nuevo Usuario</h4>
+            <h2>Nuevo Usuario</h2>
             <form onSubmit={(event) => handleSubmit(event)}>
               <Row>
                 <Col sm={24} lg={12} className="form-group">
